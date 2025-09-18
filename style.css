@@ -1,0 +1,276 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(6, 13, 39);
+    color: whitesmoke;
+    font-family: Noto Sans;
+}
+
+.app{
+    margin: 23px 100px;
+}
+
+.header{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background-color: rgb(31, 37, 53);
+    border-radius: 20px;
+}
+
+.extensions-logo-icon{
+    height: 48px;
+}
+
+.theme-container{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    padding: 10px 12px;
+    background-color: rgb(61, 68, 90);
+    border-radius: 12px;
+}.theme-container:active{
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
+}
+
+.theme{
+    margin-top: 4px;
+    width: 22px;
+    height: 22px;
+} .theme:hover{
+    cursor: pointer;
+}
+
+#title1{
+    float: right;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.nav-buttons{
+    margin-left: 8px;
+}
+
+#title2{
+    margin: 4px;
+    margin-left: 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+button, .nav-buttons{
+    width: fit-content;
+    height: 100%;
+    padding: 8px 18px;
+    font-size: 18px;
+    background-color: rgb(31, 37, 53);
+    color: white;
+    border: none;
+    border-radius: 20px;
+} button:hover{
+    cursor: pointer;
+    /* border: 1px solid rgb(241, 93, 83) */
+}
+
+.all{
+    color: rgb(6, 13, 39);
+    background-color: rgb(241, 93, 83);
+    border: none;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.card{
+    width: 29%;
+    height: 140px;
+    padding: 20px;
+    background-color: rgb(31, 37, 53);
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.card-part1{
+    display: flex;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+
+
+.card-part2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.extensions-list-icon{
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.extension-list-title{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;    
+}
+
+.extension-list-description{
+    font-size: 13px;
+    font-family: Noto Sans Regular;
+}
+
+.remove-button{
+    border: 1px solid rgb(83, 89, 105);
+    padding: 8px 12px;
+    font-size: 15px;
+} .remove-button:focus{
+    background-color: rgb(83, 89, 105);
+    border: none;
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+.nav-buttons:focus{
+    background-color: rgb(241, 93, 83);
+    border: none;
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+/* Toggle Button Styles */
+.con{
+    width: 32px;
+    height: 18px;
+    padding: 4px;
+    background-color: rgb(241, 93, 83);
+    border-radius: 15px;       
+} .con:hover{
+    cursor: pointer;
+}
+
+.tog{
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 16px;
+    margin: 1px;
+    float: right;
+}
+
+/* Toggle Disable */
+.con-disabled{
+    background-color: gray;
+}
+
+.tog-disabled{
+    float: left;
+}
+
+/* Light Theme */
+
+.body-light{
+    background-color: rgb(189, 232, 247);
+    color: black;
+}
+
+.header-light{
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+}
+
+.theme-container-light{
+    background-color: rgb(211, 211, 211);
+}
+
+.extensions-logo-icon-light{
+    width: 134px;
+    height: 46px;
+    margin-left: 4px;
+}
+
+.button-light{
+    background-color: rgb(189, 232, 247);
+}
+
+.card-light{
+    background-color: white;
+    color: inherit;
+    border: 1px solid white;
+}
+
+.remove-button-light{
+    color: inherit;
+    background-color: inherit;
+    border: 1px solid black;
+}.remove-button-light:focus{
+    background-color: rgb(211, 211, 211);
+}
+
+/* Mobile Responsiveness */
+
+@media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+        padding-left: 1px;
+    }
+    .app{
+       margin: 7%; 
+    }
+
+    .header{
+        width: auto;
+    }
+
+    .extensions-list-icon{
+        width: 50px;
+        height: 50px;
+    }
+    
+    .nav{
+        flex-direction: column;
+        align-items: center;
+        margin: 25px 0;
+        gap: 10px;
+        height: 40%;
+        padding: 2px 9px;
+    }
+    .nav-buttons-light{
+        color: white;
+    }.nav-buttons-light:hover{
+        background-color: rgb(241, 93, 83);
+    }
+
+    .cards{
+        flex-direction: column;
+        margin-top: 15px;
+    } 
+
+    .card{
+        width: auto;
+        height: 160px;
+    }
+
+    .card-part1{
+        height: 110px;
+    }
+}
