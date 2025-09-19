@@ -149,11 +149,15 @@ function changeTheme() {
     let navButtons = document.querySelectorAll(".nav-buttons")
 
     if (theme.alt === "Sun"){
-        themeContainer.innerHTML = app.moon;
-        extensionsLogo.src = app.logoLight;
+        setTimeout(()=>{
+            themeContainer.innerHTML = app.moon;
+            extensionsLogo.src = app.logoLight;
+        }, -100)
     } else{
-        themeContainer.innerHTML = app.sun;
-        extensionsLogo.src = app.logoDark;
+        setTimeout(()=>{
+            themeContainer.innerHTML = app.sun;
+            extensionsLogo.src = app.logoDark;
+        }, -100)
     }
     themeContainer.classList.toggle("theme-container-light");
     extensionsLogo.classList.toggle("extensions-logo-icon-light");
