@@ -50,6 +50,10 @@ body{
     font-weight: bold;
 }
 
+button:hover{
+    cursor: pointer;
+}
+/* Navigation Buttons */
 .nav{
     display: flex;
     justify-content: space-between;
@@ -57,17 +61,7 @@ body{
 }
 
 .nav-buttons{
-    margin-left: 8px;
-}
-
-#title2{
-    margin: 4px;
-    margin-left: 0;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-button, .nav-buttons{
+    /* color: rgb(6, 13, 39); */
     width: fit-content;
     height: 100%;
     padding: 8px 18px;
@@ -76,22 +70,49 @@ button, .nav-buttons{
     color: white;
     border: none;
     border-radius: 20px;
-} button:hover{
-    cursor: pointer;
-    /* border: 1px solid rgb(241, 93, 83) */
+    margin-left: 8px;
 }
 
 .all{
-    color: rgb(6, 13, 39);
     background-color: rgb(241, 93, 83);
     border: none;
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
 }
+
+.nav-buttons-container:focus-within .nav-buttons{
+    background-color: rgb(31, 37, 53);
+    color:  white;
+}
+
+.nav-buttons-container:focus-within .all{
+    outline: none;
+}
+
+.nav-buttons:focus{
+    background-color: rgb(241, 93, 83);
+    border: none;
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+
+#title2{
+    margin: 4px;
+    margin-left: 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
 .cards{
     display: flex;
     flex-direction: row;
     align-items: space-around;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
     margin-top: 15px;
 }
 
@@ -134,27 +155,27 @@ button, .nav-buttons{
     font-family: Noto Sans Regular;
 }
 
+
+/* Perfect */
 .remove-button{
-    border: 1px solid rgb(83, 89, 105);
+    width: fit-content;
+    height: 100%;
     padding: 8px 12px;
+    background-color: rgb(31, 37, 53);
+    color: white;
+    border: 1px solid rgb(83, 89, 105);
+    border-radius: 20px;
     font-size: 15px;
 } .remove-button:focus{
     background-color: rgb(83, 89, 105);
-    border: none;
+    border:  1px solid rgb(83, 89, 105);
     outline: 2px solid rgb(241, 93, 83);
     outline-offset: 2px;
     transition-property: background-color;
     transition-duration: 0.3s;
 }
 
-.nav-buttons:focus{
-    background-color: rgb(241, 93, 83);
-    border: none;
-    outline: 2px solid rgb(241, 93, 83);
-    outline-offset: 2px;
-    transition-property: background-color;
-    transition-duration: 0.3s;
-}
+
 
 /* Toggle Button Styles */
 .con{

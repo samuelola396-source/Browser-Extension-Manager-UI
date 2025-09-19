@@ -116,6 +116,8 @@ for (let i = 0; i < toggleContainer.length; i++){
     });
 }
 
+// const intialSelection = document.getElementById("#intial");
+// intialSelection.focus();
 
 const app = {
     moon: '<img src="./images/icon-moon.svg" class="theme" alt="Moon">',
@@ -124,6 +126,18 @@ const app = {
     logoDark: `./images/logo-dark.png`
 }
 
+const removeButton = document.querySelectorAll(".remove-button");
+let card = document.querySelectorAll(".card");
+console.log(card)
+
+for (let i = 0; i < removeButton.length; i++) {
+    removeButton[i].addEventListener('click', ()=>{
+        setTimeout(()=>{
+            card[i].hidden = "true";
+        }, 150)
+
+    })
+}
 function changeTheme() {
     let theme = document.querySelector(".theme");
     let themeContainer = document.querySelector(".theme-container");
