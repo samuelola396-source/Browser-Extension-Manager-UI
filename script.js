@@ -141,7 +141,6 @@ for (let i = 0; i < removeButton.length; i++) {
 function changeTheme() {
     let theme = document.querySelector(".theme");
     let themeContainer = document.querySelector(".theme-container");
-    let extensionsLogo = document.querySelector(".extensions-logo-icon")
     let body = document.querySelector("body");
     let cards = document.querySelectorAll(".card");
     let header = document.querySelector(".header");
@@ -149,18 +148,13 @@ function changeTheme() {
     let navButtons = document.querySelectorAll(".nav-buttons")
 
     if (theme.alt === "Sun"){
-        setTimeout(()=>{
             themeContainer.innerHTML = app.moon;
-            extensionsLogo.src = app.logoLight;
-        }, -100)
     } else{
-        setTimeout(()=>{
+
             themeContainer.innerHTML = app.sun;
-            extensionsLogo.src = app.logoDark;
-        }, -100)
     }
     themeContainer.classList.toggle("theme-container-light");
-    extensionsLogo.classList.toggle("extensions-logo-icon-light");
+    // extensionsLogo.classList.toggle("extensions-logo-icon-light");
     body.classList.toggle("body-light");
     header.classList.toggle("header-light")
     
@@ -174,4 +168,57 @@ function changeTheme() {
     for (let eachNavButton of navButtons){
         eachNavButton.classList.toggle("nav-buttons-light")
     }
+}
+
+function filterAll(){
+    document.querySelector(".all").classList.add("filter");
+    console.log("Displaying All Extension")
+
+
+    // filterAllContainer.innerHTML="";
+    // filterActiveContainer.innerHTML="";
+    // let allCards = document.querySelectorAll("div.card");
+
+    // allCards.forEach((ext)=>{
+    //     const clone = ext.cloneNode(true);
+    //     filterAllContainer.appendChild(clone);
+    // })
+        
+    // toggleAction(allCards);
+    document.querySelector(".active").classList.remove("filter");
+    document.querySelector(".inactive").classList.remove("filter");
+}
+
+// Filter All On Document Load
+document.addEventListener('DOMContentLoaded', filterAll);
+
+function filterActive(){
+    document.querySelector(".active").classList.add("filter");
+    console.log("Displaying Active Extension")
+    
+    // filterAllContainer.innerHTML="";
+    // filterActiveContainer.innerHTML="";
+    // let allExtensions = document.querySelectorAll("div.active,  div.card");
+
+    // let activeExtensions = Array.from(allExtensions).filter((ext)=>{
+    //     return ext.classList.contains('active');
+    // })
+
+
+    // activeExtensions.forEach((ext)=>{
+    //     const clone = ext.cloneNode(true);
+    //     filterActiveContainer.appendChild(clone);
+    // });
+    
+    // toggleAction(activeExtensions);
+    document.querySelector(".all").classList.remove("filter");
+    document.querySelector(".inactive").classList.remove("filter");
+}
+
+function filterInactive(){
+    document.querySelector(".inactive").classList.add("filter");
+    console.log("Displaying Inactive Extensions")
+
+    document.querySelector(".all").classList.remove("filter");
+    document.querySelector(".active").classList.remove("filter");
 }

@@ -14,7 +14,7 @@
     <div class="app">
         <div class="header">
             <div>
-                <img src="./images/logo-dark.png" class="extensions-logo-icon">
+                <img src="./images/logo.svg" class="extensions-logo-icon">
             </div>
             <div class="theme-container" onclick="changeTheme()">
                 <img src="./images/icon-sun.svg" class="theme" alt="Sun">
@@ -23,9 +23,9 @@
         <div class="nav">
             <span id="title2">Extensions List</span>
             <div class="nav-buttons-container">
-                <button class="nav-buttons all" >All</button>
-                <button class="nav-buttons">Active</button>
-                <button class="nav-buttons">Inactive</button>
+                <button class="nav-buttons all filter" onclick="filterAll()">All</button>
+                <button class="nav-buttons active" onclick="filterActive()">Active</button>
+                <button class="nav-buttons inactive" onclick="filterInactive()">Inactive</button>
             </div>
         </div>
 

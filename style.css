@@ -15,7 +15,7 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 8px 12px;
-    background-color: rgb(31, 37, 53);
+    background-color: rgb(49, 58, 82);
     border-radius: 20px;
 }
 
@@ -73,7 +73,7 @@ button:hover{
     margin-left: 8px;
 }
 
-.all{
+/* .all{
     background-color: rgb(241, 93, 83);
     border: none;
     outline: 2px solid rgb(241, 93, 83);
@@ -96,7 +96,7 @@ button:hover{
     outline-offset: 2px;
     transition-property: background-color;
     transition-duration: 0.3s;
-}
+} */
 
 
 #title2{
@@ -209,24 +209,17 @@ button:hover{
 /* Light Theme */
 
 .body-light{
-    background-color: rgb(189, 232, 247);
+    background-color: rgb(197, 239, 255);
     color: black;
 }
 
 .header-light{
     background-color: white;
     color: black;
-    border: 1px solid white;
 }
 
 .theme-container-light{
     background-color: rgb(211, 211, 211);
-}
-
-.extensions-logo-icon-light{
-    width: 134px;
-    height: 46px;
-    margin-left: 4px;
 }
 
 .button-light{
@@ -262,6 +255,10 @@ button:hover{
         width: auto;
     }
 
+    .extensions-logo-icon{
+        margin-top: 4px;
+        height: 40px;
+    }
     .extensions-list-icon{
         width: 50px;
         height: 50px;
@@ -294,4 +291,14 @@ button:hover{
     .card-part1{
         height: 110px;
     }
+}
+
+
+/* Filter Colors */
+
+.filter{
+    background-color: rgb(241, 93, 83);
+    border: none;
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
 }
