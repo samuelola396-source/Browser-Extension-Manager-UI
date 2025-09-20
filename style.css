@@ -239,6 +239,14 @@ button:hover{
 }.remove-button-light:focus{
     background-color: rgb(211, 211, 211);
 }
+/* Filter Colors */
+
+.filter{
+    background-color: rgb(241, 93, 83);
+    border: none;
+    outline: 2px solid rgb(241, 93, 83);
+    outline-offset: 2px;
+}
 
 /* Mobile Responsiveness */
 
@@ -250,11 +258,9 @@ button:hover{
     .app{
        margin: 7%; 
     }
-
     .header{
         width: auto;
     }
-
     .extensions-logo-icon{
         margin-top: 4px;
         height: 40px;
@@ -263,6 +269,7 @@ button:hover{
         width: 50px;
         height: 50px;
     }
+    
     
     .nav{
         flex-direction: column;
@@ -289,16 +296,6 @@ button:hover{
     }
 
     .card-part1{
-        height: 110px;
+        height: 115px;
     }
-}
-
-
-/* Filter Colors */
-
-.filter{
-    background-color: rgb(241, 93, 83);
-    border: none;
-    outline: 2px solid rgb(241, 93, 83);
-    outline-offset: 2px;
 }
