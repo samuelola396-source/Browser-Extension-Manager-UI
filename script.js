@@ -1,5 +1,8 @@
+// Extension Cards Container
 const cards = document.querySelector(".cards");
 
+
+// Extensions Cards
 class Extension {
     constructor(logo, title, description) {
       this.logo = logo;
@@ -76,12 +79,12 @@ const consolePlus = new Extension(
 );
 
 
-
+// Extension Cards
 const extensions = [devLens, styleSpy, speedBoost, jsonWizard, tabMasterPro, viewPortBuddy, markUpNotes, gridGuides, palettePicker, linkChecker, domSnapshot, consolePlus]
 
 extensions.map((ext)=>{
 cards.innerHTML += `
-    <div class="card">
+    <div class="card active">
         <img src="./images/${ext.logo}" class="extensions-list-icon">
         <div class="card-part1">
             <span style="margin-left: 10px;">
@@ -100,32 +103,8 @@ cards.innerHTML += `
     `
 });
 
-const toggleContainer = document.querySelectorAll(".con");
-const toggleButton = document.querySelectorAll(".tog");
 
-for (let i = 0; i < toggleContainer.length; i++){
-    toggleContainer[i].addEventListener('click', ()=>{
-        toggleContainer[i].classList.toggle("con-disabled");
-        toggleButton[i].classList.toggle("tog-disabled");
-    });
-
-    // Mobile Touch Events
-    toggleContainer[i].addEventListener("touch", ()=>{
-        toggleContainer[i].classList.toggle("con-disabled");
-        toggleButton[i].classList.toggle("tog-disabled");
-    });
-}
-
-// const intialSelection = document.getElementById("#intial");
-// intialSelection.focus();
-
-const app = {
-    moon: '<img src="./images/icon-moon.svg" class="theme" alt="Moon">',
-    sun: '<img src="./images/icon-sun.svg" class="theme" alt="Sun">',
-    logoLight: `./images/logo-light.svg`,
-    logoDark: `./images/logo-dark.png`
-}
-
+// Remove Button Action
 const removeButton = document.querySelectorAll(".remove-button");
 let card = document.querySelectorAll(".card");
 console.log(card)
@@ -133,12 +112,21 @@ console.log(card)
 for (let i = 0; i < removeButton.length; i++) {
     removeButton[i].addEventListener('click', ()=>{
         setTimeout(()=>{
-            card[i].hidden = "true";
-        }, 150)
-
-    })
+            cards.removeChild(card[i]);
+        }, 150);
+    });
 }
+
+// Theme Icons
+const app = {
+    moon: '<img src="./images/icon-moon.svg" class="theme" alt="Moon">',
+    sun: '<img src="./images/icon-sun.svg" class="theme" alt="Sun">',
+    logoLight: `./images/logo-light.svg`,
+    logoDark: `./images/logo-dark.png`
+}
+
 function changeTheme() {
+    // Target all changes to theme
     let theme = document.querySelector(".theme");
     let themeContainer = document.querySelector(".theme-container");
     let body = document.querySelector("body");
@@ -148,13 +136,11 @@ function changeTheme() {
     let navButtons = document.querySelectorAll(".nav-buttons")
 
     if (theme.alt === "Sun"){
-            themeContainer.innerHTML = app.moon;
+        themeContainer.innerHTML = app.moon;
     } else{
-
-            themeContainer.innerHTML = app.sun;
+        themeContainer.innerHTML = app.sun;
     }
     themeContainer.classList.toggle("theme-container-light");
-    // extensionsLogo.classList.toggle("extensions-logo-icon-light");
     body.classList.toggle("body-light");
     header.classList.toggle("header-light")
     
@@ -164,61 +150,101 @@ function changeTheme() {
     for (let eachCard of cards) {
         eachCard.classList.toggle("card-light");
     }
-
     for (let eachNavButton of navButtons){
         eachNavButton.classList.toggle("nav-buttons-light")
     }
 }
 
-function filterAll(){
-    document.querySelector(".all").classList.add("filter");
-    console.log("Displaying All Extension")
+// Toggle Button Action
+const toggleContainer = document.querySelectorAll(".con");
+toggleContainer.forEach((toggle)=>{
 
+    // Selects the closest tog
+    let toggleButton = toggle.querySelector(".tog");      // This time not select all
 
-    // filterAllContainer.innerHTML="";
-    // filterActiveContainer.innerHTML="";
-    // let allCards = document.querySelectorAll("div.card");
-
-    // allCards.forEach((ext)=>{
-    //     const clone = ext.cloneNode(true);
-    //     filterAllContainer.appendChild(clone);
-    // })
+    toggle.addEventListener('click', (event)=>{
         
-    // toggleAction(allCards);
+        // Toggle Switching Styles
+        toggle.classList.toggle("con-disabled");
+        toggleButton.classList.toggle("tog-disabled");
+    
+        // Targets the Closest Extension and sets it as active or inactive
+        const targetExtension = event.target.closest('.card');
+        if (targetExtension){
+            targetExtension.classList.toggle('active');
+            targetExtension.classList.toggle('inactive')
+
+            setTimeout(()=>{
+                targetExtension.style.display = 'none';
+            }, 350)
+        }
+
+    })
+});
+
+
+// Filtering...
+
+// Filter All
+function filterAll(){
+    
+    let allExtensions = document.querySelectorAll("div.card");
+    allExtensions.forEach((ext)=>{
+        ext.style.display = 'block';
+    })
+    
+    // Applying Styles
+    document.querySelector(".all").classList.add("filter");
     document.querySelector(".active").classList.remove("filter");
     document.querySelector(".inactive").classList.remove("filter");
+
+    // Log Message
+    console.log("Displaying All Extension")
 }
 
-// Filter All On Document Load
+// Filter All soon as webpage loads
 document.addEventListener('DOMContentLoaded', filterAll);
 
+// Filter Active
 function filterActive(){
+    let allExtensions = document.querySelectorAll('div.card');
+    
+    allExtensions.forEach((ext)=>{
+        if (!ext.classList.contains('active')){
+            ext.style.display = 'none';
+        } else {
+            ext.style.display = 'block';
+        }
+    })
+    
+    
+    // Applying Styles
     document.querySelector(".active").classList.add("filter");
-    console.log("Displaying Active Extension")
-    
-    // filterAllContainer.innerHTML="";
-    // filterActiveContainer.innerHTML="";
-    // let allExtensions = document.querySelectorAll("div.active,  div.card");
-
-    // let activeExtensions = Array.from(allExtensions).filter((ext)=>{
-    //     return ext.classList.contains('active');
-    // })
-
-
-    // activeExtensions.forEach((ext)=>{
-    //     const clone = ext.cloneNode(true);
-    //     filterActiveContainer.appendChild(clone);
-    // });
-    
-    // toggleAction(activeExtensions);
     document.querySelector(".all").classList.remove("filter");
     document.querySelector(".inactive").classList.remove("filter");
+    
+    // Log Message
+    console.log("Displaying Active Extension");
 }
 
-function filterInactive(){
-    document.querySelector(".inactive").classList.add("filter");
-    console.log("Displaying Inactive Extensions")
 
+// Filter Inactive
+function filterInactive(){
+    let allExtensions = document.querySelectorAll('div.card');
+    
+    allExtensions.forEach((ext)=>{
+        if (!ext.classList.contains('inactive')){
+            ext.style.display = 'none';
+        } else {
+            ext.style.display = 'block';
+        }
+    })
+
+    // Applying Styles
+    document.querySelector(".inactive").classList.add("filter");
     document.querySelector(".all").classList.remove("filter");
     document.querySelector(".active").classList.remove("filter");
+
+    // Log Message
+    console.log("Displaying Inactive Extensions");
 }
