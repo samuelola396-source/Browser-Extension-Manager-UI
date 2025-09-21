@@ -109,20 +109,20 @@ button:hover{
 
 .cards{
     display: flex;
-    flex-direction: row;
-    align-items: space-around;
     flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
     margin-top: 15px;
 }
 
 .card{
-    width: 29%;
-    height: 140px;
+    flex-basis: calc(33.333% - 10px);
+    height: 180px;
     padding: 20px;
     background-color: rgb(31, 37, 53);
     border: 1px solid gray;
     border-radius: 20px;
+    box-sizing: border-box;
 }
 
 .card-part1{
@@ -286,7 +286,7 @@ hr{
 
 /* Mobile Responsiveness */
 
-@media (max-width: 768px) {
+@media screen and  (max-width: 768px) {
     body{
         overflow-x: hidden;
         padding-left: 1px;
@@ -337,5 +337,12 @@ hr{
 
     hr{
         margin-top: 30px;
+    }
+}
+
+/* Tablet Responsiveness */
+@media screen and (max-width: 1024px){
+    .cards{
+        flex-direction: column;
     }
 }
