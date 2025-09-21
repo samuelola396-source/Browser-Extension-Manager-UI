@@ -121,14 +121,15 @@ for (let i = 0; i < removeButton.length; i++) {
 const app = {
     moon: '<img src="./images/icon-moon.svg" class="theme" alt="Moon">',
     sun: '<img src="./images/icon-sun.svg" class="theme" alt="Sun">',
-    logoLight: `./images/logo-light.svg`,
-    logoDark: `./images/logo-dark.png`
+    logoLight: `./images/logo.svg`,
+    logoDark: `./images/logo-dark.svg`
 }
 
 function changeTheme() {
-    // Target all changes to theme
+    // Targets all changes to theme
     let theme = document.querySelector(".theme");
     let themeContainer = document.querySelector(".theme-container");
+    let extensionsLogo = document.querySelector(".extensions-logo-icon")
     let body = document.querySelector("body");
     let cards = document.querySelectorAll(".card");
     let header = document.querySelector(".header");
@@ -137,10 +138,13 @@ function changeTheme() {
 
     if (theme.alt === "Sun"){
         themeContainer.innerHTML = app.moon;
+        extensionsLogo.src = app.logoLight;
     } else{
         themeContainer.innerHTML = app.sun;
+        extensionsLogo.src = app.logoDark;
     }
     themeContainer.classList.toggle("theme-container-light");
+    extensionsLogo.classList.toggle("extensions-logo-icon-light");
     body.classList.toggle("body-light");
     header.classList.toggle("header-light")
     
