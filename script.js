@@ -107,15 +107,47 @@ cards.innerHTML += `
 // Remove Button Action
 const removeButton = document.querySelectorAll(".remove-button");
 let card = document.querySelectorAll(".card");
-console.log(card)
+console.log(card);
+
 
 for (let i = 0; i < removeButton.length; i++) {
     removeButton[i].addEventListener('click', ()=>{
+        const dialog = document.querySelector(".dialog");
+
         setTimeout(()=>{
-            cards.removeChild(card[i]);
-        }, 150);
+            dialog.showModal();
+        }, 300);
+
+        const allDialogButton = document.querySelectorAll(".dialog-buttons");
+
+        allDialogButton.forEach((dialogBtn)=>{
+            dialogBtn.addEventListener('click', ()=>{
+                if (dialogBtn.classList.contains('yes')){
+                    choose('yes')
+                    console.log("Yes Button clicked!");
+                } else{
+                    choose('no');
+                    console.log("No button clicked");
+                }
+            });
+        })
+
+        function choose(dialogBtn){
+            if (dialogBtn == 'yes'){
+                setTimeout(()=>{
+                    cards.removeChild(card[i]);
+                }, 500);
+            }
+            setTimeout(()=>{
+                dialog.close();
+            }, 175)
+
+        }
     });
-}
+};
+        
+
+
 
 // Theme Icons
 const app = {
@@ -182,7 +214,7 @@ toggleContainer.forEach((toggle)=>{
                 targetExtension.style.display = 'none';
             }, 350)
         }
-
+         
     })
 });
 
@@ -204,6 +236,7 @@ function filterAll(){
 
     // Log Message
     console.log("Displaying All Extension")
+
 }
 
 // Filter All soon as webpage loads

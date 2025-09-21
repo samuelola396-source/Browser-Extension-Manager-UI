@@ -60,7 +60,7 @@ button:hover{
     margin-top: 50px;
 }
 
-.nav-buttons{
+.nav-buttons, .dialog-buttons{
     /* color: rgb(6, 13, 39); */
     width: fit-content;
     height: 100%;
@@ -206,6 +206,42 @@ button:hover{
     float: left;
 }
 
+/* Dialog Box Styles */
+ .dialog{
+    width: fit-content;
+    height: fit-content;
+    margin-top: 70px;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+}
+
+.dialog-buttons-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.dialog-buttons{
+    background-color: rgb(211, 211, 211);
+    color: rgb(6, 13, 39);
+    width: 100px;
+} .dialog-buttons:focus{
+    background-color: rgb(45, 54, 82);
+    color: white;
+    outline: 1px solid rgb(45, 54, 82);
+    outline-offset: 3px;
+    transition: background-color  0.6s;
+}
+
+hr{
+    margin-top: 40px;
+}
+    
+
+
+
+
 /* Light Theme */
 
 .body-light{
@@ -297,5 +333,9 @@ button:hover{
 
     .card-part1{
         height: 115px;
+    }
+
+    hr{
+        margin-top: 30px;
     }
 }
